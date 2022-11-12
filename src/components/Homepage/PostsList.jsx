@@ -1,25 +1,8 @@
 import React from "react"
-import { Heading, Grid, GridItem, Image, Box } from "@chakra-ui/react"
+import { Link as GatsbyLink } from "gatsby"
+import { Heading, Image, Box, Flex,Link } from "@chakra-ui/react"
 
 export default function PostsList({ posts, title, home }) {
-  // const data = useStaticQuery(graphql`
-  //   query MyQuery {
-  //     allStrapiBlogPost {
-  //       nodes {
-  //         Cover {
-  //           alternativeText
-  //           localFile {
-  //             childImageSharp {
-  //               gatsbyImageData
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
-  // const allPosts = data.allStrapiBlogPost.nodes
-  // const posts = allPosts.slice(0, 8)
   return (
     <Box
       m="0 auto"
@@ -38,37 +21,33 @@ export default function PostsList({ posts, title, home }) {
       >
         {title}
       </Heading>
-      <Grid
-        mb="25px"
-        templateRows={{ base: "repeat(4,1fr )", lg: "repeat(2,1fr )" }}
-        templateColumns={{ base: "100%", lg: "repeat(2, 1fr)" }}
-        rowGap={10}
-        columnGap={8}
-      >
-        {posts.map((item, i) => {
-          return (
-            <GridItem px={{ base: "25px", md: "0px" }} key={i}>
-              <Image
+      <Flex justifyContent='space-between'  flexWrap='wrap'>
+         {posts.map((item,i)=>{
+           return(
+           <Link _hover={{ underline: "none" }} key={i} as={GatsbyLink} to={`/blog/${item.slug.current}`} >
+            <Box m={{base:'0 auto 25px auto',lg:"0 0 25px 0"}} w={{base:'90%',lg:'304px'}}>
+               <Image
                 width="100%"
                 alt="post banner"
                 src={
-                  item.Cover.localFile.childImageSharp.gatsbyImageData.images
-                    .fallback.src
+                  item.mainImage.asset.gatsbyImageData.images.fallback.src
                 }
               />
-              <Heading
+               <Heading
                 textAlign="center"
                 mt="25px"
                 as="h3"
                 fontSize="22px"
                 fontWeight="semibold"
               >
-                {item.Title}
+                {item.title}
               </Heading>
-            </GridItem>
-          )
-        })}
-      </Grid>
+            </Box>
+          </Link>
+            
+           )    
+          })}
+      </Flex>
     </Box>
   )
 }

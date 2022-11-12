@@ -4,29 +4,30 @@ import BlogHomepage from "../components/Homepage/BlogHomepage"
 
 export const BlogHomeQuery = graphql`
   query blogHomePageQuery($limit: Int!, $offset: Int!) {
-    allStrapiBlogPost(
-      sort: { order: ASC, fields: Date }
+    allSanityPost(
+      sort: {order: ASC, fields: publishedAt}
       limit: $limit
       skip: $offset
     ) {
       nodes {
-        Title
-        Cover {
-          alternativeText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
+      title
+      slug {
+        current
+      }
+      mainImage {
+        asset {
+          gatsbyImageData
         }
       }
+    }
     }
   }
 `
 
 export default function BlogHome({ data, pageContext }) {
   const { currentPage, numberOfPages } = pageContext
-  const posts = data.allStrapiBlogPost.nodes
+  const posts = data.allSanityPost.nodes
+  console.log(posts)
   return (
     <>
       <BlogHomepage

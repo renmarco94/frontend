@@ -10,7 +10,7 @@ export default function Pagination({ currentPage, numberOfPages }) {
 
   const nextPage =
     currentPage === numberOfPages
-      ? `/blog/${currentPage}`
+      ? `/blog`
       : `/blog/${currentPage + 1}`
   return (
     <Stack mb="25px" direction="row" justify="center">

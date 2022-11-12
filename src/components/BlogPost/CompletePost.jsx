@@ -7,15 +7,22 @@ import Author from "./Author"
 import ReadNext from "./ReadNext"
 import NewsLetter from "./NewsLetter"
 
-export default function CompletePost() {
+export default function CompletePost({
+  title,
+  mainImage,
+  excerpt,
+  cat,
+  blogPost,
+  author,
+}) {
   return (
     <>
-      <HeroPost />
-      <Author header />
-      <Post />
+      <HeroPost title={title} mainImage={mainImage} excerpt={excerpt} />
+      <Author author={author} header />
+      <Post blogPost={blogPost} />
       <ShareButton />
-      <Tags />
-      <Author />
+      <Tags cat={cat} />
+      <Author author={author} />
       <ReadNext />
       <NewsLetter />
     </>

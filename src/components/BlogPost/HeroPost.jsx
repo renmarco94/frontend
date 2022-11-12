@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Heading, Text, Box, Image } from "@chakra-ui/react"
 
-export default function HeroPost() {
+export default function HeroPost({ title, mainImage, excerpt }) {
   return (
     <>
       <Container maxW="854px">
@@ -12,8 +12,7 @@ export default function HeroPost() {
           mt={{ base: "50px", lg: "75px" }}
           fontSize={{ base: "36px", lg: "54px" }}
         >
-          A few words about this blog platform, Ghost, and how this site was
-          made
+          {title}
         </Heading>
         <Box
           m="0 auto"
@@ -26,15 +25,15 @@ export default function HeroPost() {
             fontWeight="medium"
             fontSize={{ base: "16px", lg: "20px" }}
           >
-            Why Ghost (& Figma) instead of Medium, WordPress or other options?
+            {excerpt}
           </Text>
         </Box>
       </Container>
       <Image
         mt="50px"
         w="100%"
-        alt="my photo"
-        src="https://dummyimage.com/854x533/000/fff"
+        alt={`${title} post cover image`}
+        src={mainImage.asset.gatsbyImageData.images.fallback.src}
       />
     </>
   )

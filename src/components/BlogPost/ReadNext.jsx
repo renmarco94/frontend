@@ -7,28 +7,32 @@ import {
   GridItem,
   Image,
   Heading,
-  Container,
+  Link
 } from "@chakra-ui/react"
+import { Link as GatsbyLink } from "gatsby"
 
 export default function ReadNext() {
   const data = useStaticQuery(graphql`
     query MyNextPostQuery {
-      allStrapiBlogPost {
-        nodes {
-          Cover {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
+    allSanityPost(
+      sort: {order: ASC, fields: publishedAt}
+      limit: 6
+    ) {
+      nodes {
+      title
+      slug {
+        current
+      }
+      mainImage {
+        asset {
+          gatsbyImageData
         }
       }
     }
+    }
+  }
   `)
-  const allPosts = data.allStrapiBlogPost.nodes
-  const posts = allPosts.slice(0, 6)
+  const allPosts = data.allSanityPost.nodes
   return (
     <Box
       mt={{ base: "50px", md: "75px" }}
@@ -44,25 +48,24 @@ export default function ReadNext() {
         What to read next
       </Text>
       <Grid
-        m="25px 0 50px 0"
+        m="25px 0"
         templateRows={{ base: "repeat(6,300px )", lg: "repeat(2,300px )" }}
         templateColumns={{ base: "290px", lg: "repeat(3, 280px)" }}
-        // templateRows={{ base: "repeat(6,1fr )", lg: "repeat(2,1fr )" }}
-        // templateColumns={{ base: "80%", lg: "repeat(3, 1fr)" }}
-        rowGap={{ base: "5", lg: "10" }}
+        rowGap={{ base: "0", lg: "0" }}
         columnGap={"32px"}
         justifyContent="center"
       >
-        {posts.map((item, i) => {
+        {allPosts.map((item, i) => {
           return (
-            <GridItem key={i}>
+            <Link _hover={{ underline: "none" }} key={i} as={GatsbyLink} to={`/blog/${item.slug.current}`} >
+            <GridItem  key={i}>
               <Image
                 width="304px"
                 h="176px"
                 objectFit="cover"
                 alt="post banner"
                 src={
-                  item.Cover.localFile.childImageSharp.gatsbyImageData.images
+                  item.mainImage.asset.gatsbyImageData.images
                     .fallback.src
                 }
               />
@@ -73,9 +76,10 @@ export default function ReadNext() {
                 fontSize="22px"
                 fontWeight="semibold"
               >
-                Here are some things you should know regarding how we work
+                {item.title}
               </Heading>
             </GridItem>
+            </Link>
           )
         })}
       </Grid>

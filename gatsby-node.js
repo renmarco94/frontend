@@ -11,33 +11,17 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allStrapiBlogPost(sort: { order: ASC, fields: Date }) {
+      allSanityPost {
         nodes {
-          Date
-          Time
-          Title
-          category {
-            Category
-          }
-          childStrapiBlogPostPostTextnode {
-            childMarkdownRemark {
-              excerpt
-              html
-            }
-          }
-          Cover {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
+          title
+          slug {
+            current
           }
         }
       }
-      allStrapiCategory {
+      allSanityCategory {
         nodes {
-          Category
+          title
           id
         }
       }
@@ -48,22 +32,22 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { createPage } = actions
 
-  const posts = result.data.allStrapiBlogPost.nodes
-  const categories = result.data.allStrapiCategory.nodes
+  const posts = result.data.allSanityPost.nodes
+  const categories = result.data.allSanityCategory.nodes
 
-  // posts.forEach(blogPost => {
-  //   createPage({
-  //     path: `/blogs/${blogPost.slug.current}`,
-  //     component: singleBlogTemplate,
-  //     context: { id: blogPost.id },
-  //   })
-  // })
+  posts.forEach(blogPost => {
+    createPage({
+      path: `/blog/${blogPost.slug.current}`,
+      component: singleBlogTemplate,
+      context: { id: blogPost.slug.current },
+    })
+  })
 
   categories.forEach(cat => {
     createPage({
-      path: `/blog/${cat.Category}`,
+      path: `/blog/${cat.title}`,
       component: blogCategoryTemplate,
-      context: { id: cat.id, cat: cat.Category },
+      context: { id: cat.id, cat: cat.title },
     })
   })
 

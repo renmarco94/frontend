@@ -1,36 +1,19 @@
 import { Box } from "@chakra-ui/react"
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import MyPortableText from "./MyPortableText"
 
-export default function Post() {
-  const data = useStaticQuery(graphql`
-    query MyPostQuery {
-      allStrapiBlogPost {
-        nodes {
-          Date
-          Time
-          Title
-          category {
-            Category
-          }
-          childStrapiBlogPostPostTextnode {
-            childMarkdownRemark {
-              excerpt
-              html
-            }
-          }
-        }
-      }
-    }
-  `)
+export default function Post({ blogPost }) {
   return (
-    <div
-      className="content-container"
-      dangerouslySetInnerHTML={{
-        __html:
-          data.allStrapiBlogPost.nodes[1].childStrapiBlogPostPostTextnode
-            .childMarkdownRemark.html,
-      }}
-    />
+    <>
+      <Box
+        p={{ base: "25px 12.5px 0 12.5px", md: "25px 0 0 0" }}
+        m="0 auto"
+        mt="25px"
+        mb="50px"
+        maxW="640px"
+      >
+        <MyPortableText value={blogPost} />
+      </Box>
+    </>
   )
 }

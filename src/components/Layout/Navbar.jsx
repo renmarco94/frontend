@@ -12,9 +12,6 @@ import { GiHamburgerMenu } from "react-icons/gi"
 
 export default function Navbar() {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
-  // const { toggleColorMode: toggleMode } = useColorMode()
-  // const ToggleIcon = useColorModeValue(BiSun, BiMoon)
-  const links = [1, 2, 3, 4]
   return (
     <HStack
       alignContent="center"
@@ -34,30 +31,46 @@ export default function Navbar() {
       </Text>
       {isLargerThan768 ? (
         <HStack spacing="9">
-          {links.map(item => {
-            return (
-              <Link key={item} to="/">
-                <VStack
-                  h="134px"
-                  alignContent="center"
-                  justifyContent="center"
-                  _hover={{
-                    borderBottom: "2px solid",
-                    borderColor: "blackAlpha.900",
-                  }}
-                >
-                  <Box
-                    color="blackAlpha.900"
-                    fontSize="20px"
-                    fontStyle="italic"
-                    fontWeight="medium"
-                  >
-                    BLOG
-                  </Box>
-                </VStack>
-              </Link>
-            )
-          })}
+          <Link to="/">
+            <VStack
+              h="134px"
+              alignContent="center"
+              justifyContent="center"
+              _hover={{
+                borderBottom: "2px solid",
+                borderColor: "blackAlpha.900",
+              }}
+            >
+              <Box
+                color="blackAlpha.900"
+                fontSize="20px"
+                fontStyle="italic"
+                fontWeight="medium"
+              >
+                HOME
+              </Box>
+            </VStack>
+          </Link>
+          <Link to="/blog">
+            <VStack
+              h="134px"
+              alignContent="center"
+              justifyContent="center"
+              _hover={{
+                borderBottom: "2px solid",
+                borderColor: "blackAlpha.900",
+              }}
+            >
+              <Box
+                color="blackAlpha.900"
+                fontSize="20px"
+                fontStyle="italic"
+                fontWeight="medium"
+              >
+                BLOG
+              </Box>
+            </VStack>
+          </Link>
         </HStack>
       ) : (
         <IconButton

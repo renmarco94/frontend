@@ -4,30 +4,25 @@ import PostsList from "../components/Homepage/PostsList"
 
 export const CategoryQuery = graphql`
   query blogCategoryPageQuery($cat: String!) {
-    allStrapiBlogPost(filter: { category: { Category: { eq: $cat } } }) {
-      nodes {
-        Title
-        Cover {
-          alternativeText
-          localFile {
-            childImageSharp {
-              gatsbyImageData
-            }
-          }
-          id
-        }
-        category {
-          Category
+  allSanityPost(filter: {categories: {elemMatch: {title: {eq: $cat}}}}) {
+    nodes {
+      title
+      slug {
+        current
+      }
+      mainImage {
+        asset {
+          gatsbyImageData
         }
       }
     }
   }
+}
 `
 
-export default function BlogCategory({ data, pageContext }) {
+export default function BlogCategory({ pageContext,data }) {
   const { cat } = pageContext
-  const posts = data.allStrapiBlogPost.nodes
-  console.log(posts)
+  const posts = data.allSanityPost.nodes
   return (
     <>
       <PostsList posts={posts} title={cat.toUpperCase()} />

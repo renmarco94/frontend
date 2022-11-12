@@ -2,12 +2,7 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const strapiConfig = {
-  apiURL: process.env.STRAPI_API_URL,
-  accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ["blog-post", "category", "author"],
-  singleTypes: [],
-}
+const sanityConfig = require("./sanity-config")
 
 module.exports = {
   plugins: [
@@ -15,10 +10,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
-    {
-      resolve: `gatsby-source-strapi`,
-      options: strapiConfig,
-    },
     {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
@@ -35,7 +26,15 @@ module.exports = {
         portalZIndex: 40,
       },
     },
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        ...sanityConfig,
+        // projectId: process.env.GATSBY_SANITY_PROJECT_ID,
+        // dataset: `production`,
+        // token: process.env.SANITY_TOKEN,
+        // graphqlTag: "default",
+      },
+    },
   ],
 }
-
-// 99c6d713248a4646aab75061e6598c8d05fcf2fcf98a26e44ba00fd130590bb92f359419b872e00a132622dbff2b20a7b1b397c40e92cc29b27f35a1d13f76cc52117aab5269719dffcd34c242d4310e00c2f25c26aecd249d4e8cdfe4cbb429ca45353182efb5427ff9fe68628f0ecdc39eae0ea5cc3ab1d96ba02d34f5c049

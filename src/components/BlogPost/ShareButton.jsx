@@ -1,5 +1,5 @@
 import React from "react"
-import { ButtonGroup, Button, Box, Text, Stack } from "@chakra-ui/react"
+import { Button, Box, Text, Stack } from "@chakra-ui/react"
 import {
   AiOutlineTwitter,
   AiFillInstagram,
