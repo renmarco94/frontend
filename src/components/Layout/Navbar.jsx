@@ -9,6 +9,7 @@ import {
 import { Link } from "gatsby"
 import React from "react"
 import { GiHamburgerMenu } from "react-icons/gi"
+import DrawerSearch from "./DrawerSearch"
 
 export default function Navbar() {
   const [isLargerThan768] = useMediaQuery("(min-width: 768px)")
@@ -71,6 +72,7 @@ export default function Navbar() {
               </Box>
             </VStack>
           </Link>
+          <DrawerSearch />
         </HStack>
       ) : (
         <IconButton
