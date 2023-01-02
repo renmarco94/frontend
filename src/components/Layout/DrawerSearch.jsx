@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   Drawer,
   DrawerBody,
@@ -13,10 +13,73 @@ import {
   Box,
   VStack,
 } from "@chakra-ui/react"
+import axios from "axios"
+import SearchCard from "./SearchCard"
+import { graphql, useStaticQuery } from "gatsby"
+
+const query = graphql`
+  {
+    localSearchBlogs {
+      publicIndexURL
+      publicStoreURL
+    }
+    localSearchCategories {
+      publicIndexURL
+      publicStoreURL
+    }
+  }
+`
 
 export default function DrawerSearch() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const [searchQuery, setSearchQuery] = useState("")
+  const [blogsIndexStore, setBlogsIndexStore] = useState(null)
+  const [categoriesIndexStore, setCategoriesIndexStore] = useState(null)
   const btnRef = React.useRef()
+  const data = useStaticQuery(query)
+
+  const {
+    publicStoreURL: blogsPublicStoreURL,
+    publicIndexURL: blogsPublicIndexURL,
+  } = data.localSearchBlogs
+
+  const {
+    publicStoreURL: categoriesPublicStoreURL,
+    publicIndexURL: categoriesPublicIndexURL,
+  } = data.localSearchCategories
+
+  const handleOnFocus = async () => {
+    if (blogsIndexStore && categoriesIndexStore) return
+    const [
+      { data: blogsIndex },
+      { data: blogsStore },
+      { data: categoriesIndex },
+      { data: categoriesStore },
+    ] = await Promise.all([
+      axios.get(blogsPublicIndexURL),
+      axios.get(blogsPublicStoreURL),
+      axios.get(categoriesPublicIndexURL),
+      axios.get(categoriesPublicStoreURL),
+    ])
+    setBlogsIndexStore({
+      index: blogsIndex,
+      store: blogsStore,
+    })
+    setCategoriesIndexStore({
+      index: categoriesIndex,
+      store: categoriesStore,
+    })
+  }
+
+  const setSearchValue = e => {
+    e.preventDefault()
+    setSearchQuery(e.target.value)
+  }
+
+  const resetValue = () => {
+    setSearchQuery("")
+    onClose()
+  }
 
   return (
     <>
@@ -54,6 +117,10 @@ export default function DrawerSearch() {
 
           <DrawerBody>
             <Input
+              value={searchQuery}
+              // setValue={setSearchQuery}
+              onFocus={handleOnFocus}
+              onChange={e => setSearchValue(e)}
               placeholder="Type here..."
               focusBorderColor="blackAlpha.900"
               borderRadius="0"
@@ -62,6 +129,13 @@ export default function DrawerSearch() {
               borderColor="blackAlpha.900"
               _placeholder={{ color: "blackAlpha.900" }}
             />
+            {searchQuery && blogsIndexStore && categoriesIndexStore && (
+              <SearchCard
+                blogsIndexStore={blogsIndexStore}
+                searchQuery={searchQuery}
+                categoriesIndexStore={categoriesIndexStore}
+              />
+            )}
           </DrawerBody>
 
           <DrawerFooter>

@@ -36,5 +36,74 @@ module.exports = {
         // graphqlTag: "default",
       },
     },
+    {
+      resolve: `gatsby-plugin-local-search`,
+      options: {
+        name: `blogs`,
+        engine: `flexsearch`,
+        engineOptions: {
+          tokenize: "forward",
+        },
+        query: `
+        {
+          allSanityPost {
+            nodes {
+              id
+              title
+              categories {
+                title
+                id
+              }
+              slug {
+                current
+              }
+              author {
+                name
+              }
+            }
+          }  
+        }
+        `,
+        ref: "id",
+        index: ["title"],
+        store: ["id", "title", "categories", "slug", "author"],
+        normalizer: ({ data }) =>
+          data.allSanityPost.nodes.map(node => ({
+            id: node.id,
+            title: node.title,
+            categories: node.categories[0].title,
+            slug: node.slug.current,
+            author: node.author.name,
+          })),
+      },
+    },
+    {
+      resolve: `gatsby-plugin-local-search`,
+      options: {
+        name: `categories`,
+        engine: `flexsearch`,
+        engineOptions: {
+          tokenize: "forward",
+        },
+        query: `
+        {
+          allSanityCategory {
+          nodes{
+            id
+            title
+          }
+          }
+        }
+        `,
+        ref: "id",
+        index: ["title"],
+        store: ["id", "title"],
+        normalizer: ({ data }) =>
+          data.allSanityCategory.nodes.map(node => ({
+            id: node.id,
+            title: node.title,
+          })),
+      },
+    },
   ],
 }
