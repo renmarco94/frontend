@@ -5,6 +5,13 @@ require("dotenv").config({
 const sanityConfig = require("./sanity-config")
 
 module.exports = {
+  siteMetadata: {
+    title: `Marco Rendine Blog`,
+    description: `Il mio blog dove parlo di nutrizione e allenamento`,
+    twitterUsername: `@gatsbyjs`,
+    image: `/favicon.ico`,
+    siteUrl: `https://www.yourdomain.tld`,
+  },
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
@@ -53,6 +60,9 @@ module.exports = {
               categories {
                 title
                 id
+                slug{
+                  current
+                }
               }
               slug {
                 current
@@ -66,12 +76,13 @@ module.exports = {
         `,
         ref: "id",
         index: ["title"],
-        store: ["id", "title", "categories", "slug", "author"],
+        store: ["id", "title", "categories", "slugcat", "slug", "author"],
         normalizer: ({ data }) =>
           data.allSanityPost.nodes.map(node => ({
             id: node.id,
             title: node.title,
             categories: node.categories[0].title,
+            slugcat: node.categories[0].slug.current,
             slug: node.slug.current,
             author: node.author.name,
           })),

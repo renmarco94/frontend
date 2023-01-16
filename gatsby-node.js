@@ -23,6 +23,17 @@ exports.createPages = async ({ graphql, actions }) => {
         nodes {
           title
           id
+          slug {
+            current
+          }
+        }
+      }
+      allSanityAuthor {
+        nodes {
+          slug {
+            current
+          }
+          name
         }
       }
     }
@@ -45,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   categories.forEach(cat => {
     createPage({
-      path: `/blog/${cat.title}`,
+      path: `/blog/${cat.slug.current}`,
       component: blogCategoryTemplate,
       context: { id: cat.id, cat: cat.title },
     })

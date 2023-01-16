@@ -1,25 +1,26 @@
 import React from "react"
 import { graphql } from "gatsby"
 import BlogHomepage from "../components/Homepage/BlogHomepage"
+import Seo from "../components/Layout/Seo"
 
 export const BlogHomeQuery = graphql`
   query blogHomePageQuery($limit: Int!, $offset: Int!) {
     allSanityPost(
-      sort: {order: ASC, fields: publishedAt}
+      sort: { order: ASC, fields: publishedAt }
       limit: $limit
       skip: $offset
     ) {
       nodes {
-      title
-      slug {
-        current
-      }
-      mainImage {
-        asset {
-          gatsbyImageData
+        title
+        slug {
+          current
+        }
+        mainImage {
+          asset {
+            gatsbyImageData
+          }
         }
       }
-    }
     }
   }
 `
@@ -38,3 +39,5 @@ export default function BlogHome({ data, pageContext }) {
     </>
   )
 }
+
+export const Head = () => <Seo />

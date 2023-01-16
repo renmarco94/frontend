@@ -11,9 +11,7 @@ import React from "react"
 import { useForm, ValidationError } from "@formspree/react"
 
 export default function NewsLetter() {
-  const [state, handleSubmit] = useForm(
-    `${process.env.GATSBY_FORMSPREE_ENDPOINT}`
-  )
+  const [state, handleSubmit] = useForm("xknaggqv")
   if (state.succeeded) {
     return (
       <>

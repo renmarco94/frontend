@@ -14,6 +14,7 @@ export default function CompletePost({
   cat,
   blogPost,
   author,
+  slugCat,
 }) {
   return (
     <>
@@ -21,7 +22,7 @@ export default function CompletePost({
       <Author author={author} header />
       <Post blogPost={blogPost} />
       <ShareButton />
-      <Tags cat={cat} />
+      <Tags cat={cat} slugCat={slugCat} />
       <Author author={author} />
       <ReadNext />
       <NewsLetter />

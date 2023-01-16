@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import CompletePost from "../components/BlogPost/CompletePost"
+import Seo from "../components/Layout/Seo"
 
 export const SinglePostQuery = graphql`
   query singlePostQueryQuery($id: String!) {
@@ -12,6 +13,9 @@ export const SinglePostQuery = graphql`
         }
         categories {
           title
+          slug {
+            current
+          }
         }
         author {
           bio {
@@ -47,11 +51,13 @@ export const SinglePostQuery = graphql`
 
 export default function SinglePost({ data }) {
   const post = data.allSanityPost.nodes[0]
+  console.log(post)
   return (
     <>
       <CompletePost
         author={post.author}
         cat={post.categories[0].title}
+        slugCat={post.categories[0].slug.current}
         title={post.title}
         mainImage={post.mainImage}
         excerpt={post.excerpt}
@@ -60,3 +66,5 @@ export default function SinglePost({ data }) {
     </>
   )
 }
+
+export const Head = () => <Seo />

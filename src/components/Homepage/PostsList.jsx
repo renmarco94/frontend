@@ -1,6 +1,6 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { Heading, Image, Box, Flex,Link } from "@chakra-ui/react"
+import { Heading, Image, Box, Flex, Link } from "@chakra-ui/react"
 
 export default function PostsList({ posts, title, home }) {
   return (
@@ -21,32 +21,37 @@ export default function PostsList({ posts, title, home }) {
       >
         {title}
       </Heading>
-      <Flex justifyContent='space-between'  flexWrap='wrap'>
-         {posts.map((item,i)=>{
-           return(
-           <Link _hover={{ underline: "none" }} key={i} as={GatsbyLink} to={`/blog/${item.slug.current}`} >
-            <Box m={{base:'0 auto 25px auto',lg:"0 0 25px 0"}} w={{base:'90%',lg:'304px'}}>
-               <Image
-                width="100%"
-                alt="post banner"
-                src={
-                  item.mainImage.asset.gatsbyImageData.images.fallback.src
-                }
-              />
-               <Heading
-                textAlign="center"
-                mt="25px"
-                as="h3"
-                fontSize="22px"
-                fontWeight="semibold"
+      <Flex justifyContent="space-between" flexWrap="wrap">
+        {posts.map((item, i) => {
+          return (
+            <Link
+              _hover={{ underline: "none" }}
+              key={i}
+              as={GatsbyLink}
+              to={`/blog/${item.slug.current}`}
+            >
+              <Box
+                m={{ base: "0 auto 25px auto", lg: "0 0 25px 0" }}
+                w={{ base: "90%", lg: "304px" }}
               >
-                {item.title}
-              </Heading>
-            </Box>
-          </Link>
-            
-           )    
-          })}
+                <Image
+                  width="100%"
+                  alt="post banner"
+                  src={item.mainImage.asset.gatsbyImageData.images.fallback.src}
+                />
+                <Heading
+                  textAlign="center"
+                  mt="25px"
+                  as="h3"
+                  fontSize="22px"
+                  fontWeight="semibold"
+                >
+                  {item.title}
+                </Heading>
+              </Box>
+            </Link>
+          )
+        })}
       </Flex>
     </Box>
   )
