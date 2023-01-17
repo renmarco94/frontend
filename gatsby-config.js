@@ -10,7 +10,7 @@ module.exports = {
     description: `Il mio blog dove parlo di nutrizione e allenamento`,
     twitterUsername: `@gatsbyjs`,
     image: `/favicon.ico`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `https://mrnutrition.netlify.app/`,
   },
   plugins: [
     "gatsby-plugin-image",
@@ -38,7 +38,7 @@ module.exports = {
       options: {
         ...sanityConfig,
         // projectId: process.env.GATSBY_SANITY_PROJECT_ID,
-        // dataset: `production`,
+        // dataset: process.env.GATSBY_SANITY_PROJECT_DATASET,
         // token: process.env.SANITY_TOKEN,
         // graphqlTag: "default",
       },
