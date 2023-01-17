@@ -10,7 +10,8 @@ module.exports = {
     description: `Il mio blog dove parlo di nutrizione e allenamento`,
     twitterUsername: `@LucioRendine`,
     image: `/profilepic2.png`,
-    siteUrl: `https://mrnutrition.netlify.app/`,
+    icon: `/favicon.ico`,
+    siteUrl: `https://mrnutrition.netlify.app`,
   },
   plugins: [
     "gatsby-plugin-image",
