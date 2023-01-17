@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     title: `Marco Rendine Blog`,
     description: `Il mio blog dove parlo di nutrizione e allenamento`,
-    twitterUsername: `@gatsbyjs`,
+    twitterUsername: `@LucioRendine`,
     image: `/favicon.ico`,
     siteUrl: `https://mrnutrition.netlify.app/`,
   },
