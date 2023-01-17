@@ -9,7 +9,7 @@ module.exports = {
     title: `Marco Rendine Blog`,
     description: `Il mio blog dove parlo di nutrizione e allenamento`,
     twitterUsername: `@LucioRendine`,
-    image: `/favicon.ico`,
+    image: `/profilepic2.png`,
     siteUrl: `https://mrnutrition.netlify.app/`,
   },
   plugins: [
