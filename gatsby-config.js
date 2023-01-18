@@ -7,6 +7,7 @@ const sanityConfig = require("./sanity-config")
 module.exports = {
   siteMetadata: {
     title: `Marco Rendine Blog`,
+    author: `Marco Rendine`,
     description: `Il mio blog dove parlo di nutrizione e allenamento`,
     twitterUsername: `@LucioRendine`,
     image: `/profilepic2.png`,

@@ -61,6 +61,7 @@ export default function SinglePost({ data }) {
         mainImage={post.mainImage}
         excerpt={post.excerpt}
         blogPost={post._rawBody}
+        published={post.publishedAt}
       />
     </>
   )
@@ -68,5 +69,11 @@ export default function SinglePost({ data }) {
 
 export const Head = ({ data }) => {
   const seotag = data.allSanityPost.nodes[0]
-  return <Seo description={seotag.excerpt} title={seotag.title} />
+  return (
+    <Seo
+      description={seotag.excerpt}
+      title={seotag.title}
+      published={seotag.publishedAt}
+    />
+  )
 }

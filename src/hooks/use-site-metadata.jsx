@@ -9,7 +9,9 @@ export const useSiteMetadata = () => {
           description
           twitterUsername
           image
+          icon
           siteUrl
+          author
         }
       }
     }

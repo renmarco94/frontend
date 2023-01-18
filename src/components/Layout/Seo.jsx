@@ -4,11 +4,13 @@ import { useSiteMetadata } from "../../hooks/use-site-metadata"
 export default function Seo({ title, description, pathname, children }) {
   const {
     title: defaultTitle,
+    author,
     description: defaultDescription,
     image,
     icon,
     siteUrl,
     twitterUsername,
+    published,
   } = useSiteMetadata()
 
   const seo = {
@@ -18,6 +20,8 @@ export default function Seo({ title, description, pathname, children }) {
     icon: `${siteUrl}${icon}`,
     url: `${siteUrl}${pathname || ``}`,
     twitterUsername,
+    author,
+    published,
   }
 
   return (
@@ -26,8 +30,10 @@ export default function Seo({ title, description, pathname, children }) {
         <title>{`${seo.title} - ${seo.description}`}</title>
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
+        <meta name="author" content={seo.author} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content={seo.twitterUsername} />
+        <meta property="article:published_time" content={seo.published} />
         {/* <meta name="twitter:title" content={seo.title} /> */}
         <meta property="og:title" content={seo.title} />
         {/* <meta name="twitter:description" content={seo.description} /> */}
