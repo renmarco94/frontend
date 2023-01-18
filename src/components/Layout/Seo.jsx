@@ -47,6 +47,7 @@ export default function Seo({
         <meta property="og:url" content={seo.url} />
         {/* <meta name="twitter:image" content={seo.image} /> */}
         <meta property="og:image" content={seo.image} />
+        <meta property="og:image:alt" content="my social media banner" />
         <meta property="og:type" content="website" />
         <link rel="icon" href={seo.icon} />
         {children}
