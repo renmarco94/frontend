@@ -51,7 +51,6 @@ export const SinglePostQuery = graphql`
 
 export default function SinglePost({ data }) {
   const post = data.allSanityPost.nodes[0]
-  console.log(post)
   return (
     <>
       <CompletePost
@@ -67,4 +66,7 @@ export default function SinglePost({ data }) {
   )
 }
 
-export const Head = () => <Seo />
+export const Head = ({ data }) => {
+  const seotag = data.allSanityPost.nodes[0]
+  return <Seo description={seotag.excerpt} title={seotag.title} />
+}
