@@ -28,7 +28,7 @@ export default function Seo({
     author,
     published,
   }
-  console.log(seo.published, "ole")
+
   return (
     <>
       <>

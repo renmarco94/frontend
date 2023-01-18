@@ -71,6 +71,7 @@ export const Head = ({ data }) => {
   const seotag = data.allSanityPost.nodes[0]
   return (
     <Seo
+      pathname={seotag.slug.current}
       description={seotag.excerpt}
       title={seotag.title}
       published={seotag.publishedAt}
