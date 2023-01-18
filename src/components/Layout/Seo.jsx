@@ -1,7 +1,13 @@
 import React from "react"
 import { useSiteMetadata } from "../../hooks/use-site-metadata"
 
-export default function Seo({ title, description, pathname, children }) {
+export default function Seo({
+  title,
+  description,
+  pathname,
+  children,
+  published,
+}) {
   const {
     title: defaultTitle,
     author,
@@ -10,7 +16,6 @@ export default function Seo({ title, description, pathname, children }) {
     icon,
     siteUrl,
     twitterUsername,
-    published,
   } = useSiteMetadata()
 
   const seo = {
@@ -23,7 +28,7 @@ export default function Seo({ title, description, pathname, children }) {
     author,
     published,
   }
-
+  console.log(seo.published, "ole")
   return (
     <>
       <>
