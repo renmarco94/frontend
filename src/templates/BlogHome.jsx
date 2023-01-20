@@ -5,11 +5,7 @@ import Seo from "../components/Layout/Seo"
 
 export const BlogHomeQuery = graphql`
   query blogHomePageQuery($limit: Int!, $offset: Int!) {
-    allSanityPost(
-      sort: { order: ASC, fields: publishedAt }
-      limit: $limit
-      skip: $offset
-    ) {
+    allSanityPost(sort: { publishedAt: ASC }, limit: $limit, skip: $offset) {
       nodes {
         title
         slug {

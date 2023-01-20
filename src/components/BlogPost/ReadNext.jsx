@@ -7,30 +7,27 @@ import {
   GridItem,
   Image,
   Heading,
-  Link
+  Link,
 } from "@chakra-ui/react"
 import { Link as GatsbyLink } from "gatsby"
 
 export default function ReadNext() {
   const data = useStaticQuery(graphql`
     query MyNextPostQuery {
-    allSanityPost(
-      sort: {order: ASC, fields: publishedAt}
-      limit: 6
-    ) {
-      nodes {
-      title
-      slug {
-        current
-      }
-      mainImage {
-        asset {
-          gatsbyImageData
+      allSanityPost(sort: { publishedAt: ASC }, limit: 6) {
+        nodes {
+          title
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
-    }
-  }
   `)
   const allPosts = data.allSanityPost.nodes
   return (
@@ -57,28 +54,30 @@ export default function ReadNext() {
       >
         {allPosts.map((item, i) => {
           return (
-            <Link _hover={{ underline: "none" }} key={i} as={GatsbyLink} to={`/blog/${item.slug.current}`} >
-            <GridItem  key={i}>
-              <Image
-                width="304px"
-                h="176px"
-                objectFit="cover"
-                alt="post banner"
-                src={
-                  item.mainImage.asset.gatsbyImageData.images
-                    .fallback.src
-                }
-              />
-              <Heading
-                textAlign="center"
-                mt="12.5px"
-                as="h3"
-                fontSize="22px"
-                fontWeight="semibold"
-              >
-                {item.title}
-              </Heading>
-            </GridItem>
+            <Link
+              _hover={{ underline: "none" }}
+              key={i}
+              as={GatsbyLink}
+              to={`/blog/${item.slug.current}`}
+            >
+              <GridItem key={i}>
+                <Image
+                  width="304px"
+                  h="176px"
+                  objectFit="cover"
+                  alt="post banner"
+                  src={item.mainImage.asset.gatsbyImageData.images.fallback.src}
+                />
+                <Heading
+                  textAlign="center"
+                  mt="12.5px"
+                  as="h3"
+                  fontSize="22px"
+                  fontWeight="semibold"
+                >
+                  {item.title}
+                </Heading>
+              </GridItem>
             </Link>
           )
         })}

@@ -1,50 +1,44 @@
 {
-  "name": "mrnutrition-frontend",
-  "private": true,
-  "description": "Gatsby frontend for mrnutrition blog",
-  "version": "0.1.0",
-  "license": "0BSD",
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "<!-- AUTO-GENERATED-CONTENT:START (STARTER) --> <p align=\"center\">   <a href=\"https://www.gatsbyjs.com\">     <img alt=\"Gatsby\" src=\"https://www.gatsbyjs.com/Gatsby-Monogram.svg\" width=\"60\" />   </a> </p> <h1 align=\"center\">   Gatsby's hello-world starter </h1>",
+  "main": "gatsby-browser.js",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "dependencies": {
-    "@chakra-ui/gatsby-plugin": "^3.0.6",
-    "@chakra-ui/react": "^2.3.7",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@fontsource/montserrat": "^4.5.13",
-    "@formspree/react": "^2.4.1",
-    "@portabletext/react": "^2.0.0",
-    "@sanity/asset-utils": "^1.3.0",
-    "axios": "^1.2.0",
-    "framer-motion": "^7.6.4",
-    "gatsby": "^4.24.6",
-    "gatsby-plugin-image": "^2.24.0",
-    "gatsby-plugin-local-search": "^2.0.1",
-    "gatsby-plugin-sharp": "^4.24.0",
-    "gatsby-source-filesystem": "^4.24.0",
-    "gatsby-source-sanity": "^7.5.1",
-    "gatsby-transformer-remark": "^5.24.0",
-    "gatsby-transformer-sharp": "^4.24.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-icons": "^4.6.0",
-    "react-use-flexsearch": "^0.1.1"
-  },
-  "devDependencies": {
-    "prettier": "^2.7.1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "git+https://github.com/renmarco94/frontend.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/renmarco94/frontend/issues"
+  },
+  "homepage": "https://github.com/renmarco94/frontend#readme",
+  "dependencies": {
+    "@chakra-ui/gatsby-plugin": "^3.1.1",
+    "@chakra-ui/react": "^2.4.9",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fontsource/montserrat": "^4.5.14",
+    "@formspree/react": "^2.4.1",
+    "@portabletext/react": "^2.0.0",
+    "@sanity/asset-utils": "^1.3.0",
+    "axios": "^1.2.3",
+    "framer-motion": "^8.5.0",
+    "gatsby": "^5.4.2",
+    "gatsby-plugin-image": "^3.4.0",
+    "gatsby-plugin-local-search": "^2.0.1",
+    "gatsby-plugin-sharp": "^5.4.0",
+    "gatsby-source-filesystem": "^5.4.0",
+    "gatsby-source-sanity": "^7.6.2",
+    "gatsby-transformer-remark": "^6.4.0",
+    "gatsby-transformer-sharp": "^5.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-use-flexsearch": "^0.1.1"
   }
 }

@@ -7,7 +7,7 @@ import Seo from "../components/Layout/Seo"
 
 export const query = graphql`
   {
-    allSanityPost(sort: { order: ASC, fields: publishedAt }, limit: 4) {
+    allSanityPost(sort: { publishedAt: ASC }, limit: 4) {
       nodes {
         title
         slug {
