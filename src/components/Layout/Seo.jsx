@@ -33,6 +33,10 @@ export default function Seo({
     <>
       <>
         <title>{`${seo.title} - ${seo.description}`}</title>
+        <meta
+          name="google-site-verification"
+          content="mjq5DtsDhyOgGE3egTFHS3JMajGqOVf8Aaiupq0A6BI"
+        />
         <meta name="description" content={seo.description} />
         <meta name="image" content={seo.image} />
         <meta name="author" content={seo.author} />

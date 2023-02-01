@@ -6,11 +6,6 @@ import {
   TwitterShareButton,
 } from "react-share"
 import { Avatar, Box, Flex, Stack, Text } from "@chakra-ui/react"
-// import {
-//   AiOutlineTwitter,
-//   AiFillInstagram,
-//   AiFillLinkedin,
-// } from "react-icons/ai"
 
 export default function Author({ header, author }) {
   return (
