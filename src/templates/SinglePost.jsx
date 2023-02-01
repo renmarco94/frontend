@@ -56,6 +56,7 @@ export default function SinglePost({ data }) {
       <CompletePost
         author={post.author}
         cat={post.categories[0].title}
+        slug={post.slug.current}
         slugCat={post.categories[0].slug.current}
         title={post.title}
         mainImage={post.mainImage}

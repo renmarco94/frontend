@@ -1,7 +1,7 @@
 import React from "react"
 import HeroPost from "./HeroPost"
 import Post from "./Post"
-import ShareButton from "./ShareButton"
+import ShareButtons from "./ShareButtons"
 import Tags from "./Tags"
 import Author from "./Author"
 import ReadNext from "./ReadNext"
@@ -15,13 +15,18 @@ export default function CompletePost({
   blogPost,
   author,
   slugCat,
+  slug,
 }) {
   return (
     <>
       <HeroPost title={title} mainImage={mainImage} excerpt={excerpt} />
       <Author author={author} header />
       <Post blogPost={blogPost} />
-      <ShareButton />
+      <ShareButtons
+        title={title}
+        description={excerpt}
+        url={`https://mrnutrition.vercel.app/blog/${slug}`}
+      />
       <Tags cat={cat} slugCat={slugCat} />
       <Author author={author} />
       <ReadNext />

@@ -1,17 +1,16 @@
 import React from "react"
+import { Facebook, Twitter, Linkedin } from "react-feather"
 import {
-  Avatar,
-  Box,
-  Flex,
-  IconButton,
-  ButtonGroup,
-  Text,
-} from "@chakra-ui/react"
-import {
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiFillLinkedin,
-} from "react-icons/ai"
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+} from "react-share"
+import { Avatar, Box, Flex, Stack, Text } from "@chakra-ui/react"
+// import {
+//   AiOutlineTwitter,
+//   AiFillInstagram,
+//   AiFillLinkedin,
+// } from "react-icons/ai"
 
 export default function Author({ header, author }) {
   return (
@@ -41,35 +40,21 @@ export default function Author({ header, author }) {
                 Apr 15, 2020 · 4 min read
               </Box>
             </Flex>
-            <ButtonGroup ml="auto">
-              <IconButton
-                aria-label="Instagram"
-                size="lg"
-                color="blackAlpha.900"
-                bg="white"
-                border="2px solid"
-                borderColor="gray.100"
-                icon={<AiFillInstagram fontSize="20px" />}
-              />
-              <IconButton
-                aria-label="Linkedin"
-                bg="white"
-                border="2px solid"
-                borderColor="gray.100"
-                size="lg"
-                color="blackAlpha.900"
-                icon={<AiFillLinkedin fontSize="20px" />}
-              />
-              <IconButton
-                aria-label="Twitter"
-                bg="white"
-                border="2px solid"
-                borderColor="gray.100"
-                size="lg"
-                color="blackAlpha.900"
-                icon={<AiOutlineTwitter fontSize="20px" />}
-              />
-            </ButtonGroup>
+            <Box ml="auto">
+              <Stack direction="row" spacing="4">
+                <FacebookShareButton>
+                  <Facebook strokeWidth={1.25} />
+                </FacebookShareButton>
+
+                <LinkedinShareButton>
+                  <Linkedin strokeWidth={1.25} />
+                </LinkedinShareButton>
+
+                <TwitterShareButton>
+                  <Twitter strokeWidth={1.25} />
+                </TwitterShareButton>
+              </Stack>
+            </Box>
           </>
         ) : (
           <Box>

@@ -14,6 +14,18 @@ const service = [
   "NUTRITION",
   "TRAINING",
   "RESEARCH",
+  "NUTRITION",
+  "TRAINING",
+  "RESEARCH",
+  "NUTRITION",
+  "TRAINING",
+  "RESEARCH",
+  "NUTRITION",
+  "TRAINING",
+  "RESEARCH",
+  "NUTRITION",
+  "TRAINING",
+  "RESEARCH",
 ]
 
 const social = [
