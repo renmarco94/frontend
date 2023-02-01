@@ -19,7 +19,6 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
-    "gatsby-plugin-sitemap",
     {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
@@ -36,6 +35,43 @@ module.exports = {
         portalZIndex: 40,
       },
     },
+    `gatsby-plugin-sitemap`,
+    // {
+    //   resolve: "gatsby-plugin-sitemap",
+    //   options: {
+    //     query: `
+    //     {
+    //       site {
+    //         siteMetadata {
+    //           siteUrl
+    //         }
+    //       }
+    //       allSitePage {
+    //         nodes {
+    //           path
+    //         }
+    //       }
+    //     }
+    //     `,
+    //     resolveSiteUrl: () => siteUrl,
+    //     resolvePages: ({
+    //       site: {
+    //         siteMetadata: { siteUrl },
+    //       },
+    //       allSitePage: { nodes: allPosts },
+    //     }) => {},
+    //     serialize: ({ site, allSitePage }) => {
+    //       return allSitePage.edges.map(edge => {
+    //         const { node } = edge
+    //         return {
+    //           url: `${site.siteMetadata.siteUrl}${node.path}`,
+    //           changefreq: "dayly",
+    //           priority: 0.7,
+    //         }
+    //       })
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-source-sanity`,
       options: {
