@@ -12,7 +12,7 @@ module.exports = {
     twitterUsername: `@LucioRendine`,
     image: `/profilepic2.png`,
     icon: `/favicon.ico`,
-    siteUrl: `https://mrnutrition.netlify.app`,
+    siteUrl: `https://mrnutrition.vercel.app`,
   },
   plugins: [
     "gatsby-plugin-image",
