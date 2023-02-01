@@ -4,7 +4,12 @@
   "description": "<!-- AUTO-GENERATED-CONTENT:START (STARTER) --> <p align=\"center\">   <a href=\"https://www.gatsbyjs.com\">     <img alt=\"Gatsby\" src=\"https://www.gatsbyjs.com/Gatsby-Monogram.svg\" width=\"60\" />   </a> </p> <h1 align=\"center\">   Gatsby's hello-world starter </h1>",
   "main": "gatsby-browser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
