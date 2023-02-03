@@ -17,7 +17,7 @@ import {
   Button,
 } from "@chakra-ui/react"
 import { Link } from "gatsby"
-import { GiHamburgerMenu } from "react-icons/gi"
+import { AlignJustify } from "react-feather"
 import axios from "axios"
 import SearchCard from "./SearchCard"
 import { graphql, useStaticQuery } from "gatsby"
@@ -174,7 +174,7 @@ export default function Navbar() {
           variant="ghost"
           _hover={{ bg: "white" }}
           aria-label="Toggle Sidebar"
-          icon={<GiHamburgerMenu fontSize="1.5rem" />}
+          icon={<AlignJustify fontSize="1.5rem" />}
         />
       )}
       <Drawer

@@ -43,12 +43,10 @@
     "gatsby-plugin-sitemap": "^6.4.0",
     "gatsby-source-filesystem": "^5.4.0",
     "gatsby-source-sanity": "^7.6.2",
-    "gatsby-transformer-remark": "^6.4.0",
     "gatsby-transformer-sharp": "^5.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
-    "react-icons": "^4.7.1",
     "react-share": "^4.4.1",
     "react-use-flexsearch": "^0.1.1"
   }

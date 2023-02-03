@@ -1,10 +1,11 @@
 import React from "react"
-import { Container, Heading, Text, Box, Image } from "@chakra-ui/react"
+import { StaticImage } from "gatsby-plugin-image"
+import { Container, Heading, Text, Box } from "@chakra-ui/react"
 
 export default function Hero() {
   return (
     <Container pt={{ base: "50px", lg: "75px" }} maxW="854px">
-      <Image
+      <StaticImage
         w="100%"
         alt="my photo"
         src="https://dummyimage.com/854x533/000/fff"

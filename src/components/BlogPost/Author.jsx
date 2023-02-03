@@ -1,13 +1,8 @@
 import React from "react"
-import { Facebook, Twitter, Linkedin } from "react-feather"
-import {
-  FacebookShareButton,
-  LinkedinShareButton,
-  TwitterShareButton,
-} from "react-share"
-import { Avatar, Box, Flex, Stack, Text } from "@chakra-ui/react"
+import { Avatar, Box, Flex, Text } from "@chakra-ui/react"
+import ShareButtons from "./ShareButtons"
 
-export default function Author({ header, author }) {
+export default function Author({ header, author, title, description, url }) {
   return (
     <Box
       p={{ base: "25px 12.5px 0 12.5px", md: "25px 0 0 0" }}
@@ -36,19 +31,7 @@ export default function Author({ header, author }) {
               </Box>
             </Flex>
             <Box ml="auto">
-              <Stack direction="row" spacing="4">
-                <FacebookShareButton>
-                  <Facebook strokeWidth={1.25} />
-                </FacebookShareButton>
-
-                <LinkedinShareButton>
-                  <Linkedin strokeWidth={1.25} />
-                </LinkedinShareButton>
-
-                <TwitterShareButton>
-                  <Twitter strokeWidth={1.25} />
-                </TwitterShareButton>
-              </Stack>
+              <ShareButtons title={title} description={description} url={url} />
             </Box>
           </>
         ) : (
