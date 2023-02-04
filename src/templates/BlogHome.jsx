@@ -24,7 +24,6 @@ export const BlogHomeQuery = graphql`
 export default function BlogHome({ data, pageContext }) {
   const { currentPage, numberOfPages } = pageContext
   const posts = data.allSanityPost.nodes
-  console.log(posts)
   return (
     <>
       <BlogHomepage

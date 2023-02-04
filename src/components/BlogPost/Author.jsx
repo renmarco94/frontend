@@ -36,13 +36,6 @@ export default function Author({ header, author, title, description, url }) {
             image={author.image.asset.gatsbyImageData}
           />
         )}
-        {/* <Avatar
-          size={header ? "lg" : "xl"}
-          mr="12.5px"
-          alt={author.name}
-          name={author.Name}
-          src={author.image.asset.gatsbyImageData.images.fallback.src} */}
-        {/* /> */}
         {header ? (
           <>
             <Flex flexDirection="column" justifyContent="center">

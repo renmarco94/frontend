@@ -1,6 +1,7 @@
 import React from "react"
 import { Link as GatsbyLink } from "gatsby"
-import { Heading, Image, Box, Flex, Link } from "@chakra-ui/react"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { Heading, Box, Flex, Link } from "@chakra-ui/react"
 
 export default function PostsList({ posts, title, home }) {
   return (
@@ -34,10 +35,10 @@ export default function PostsList({ posts, title, home }) {
                 m={{ base: "0 auto 25px auto", lg: "0 0 25px 0" }}
                 w={{ base: "90%", lg: "304px" }}
               >
-                <Image
-                  width="100%"
+                <GatsbyImage
+                  style={{ width: "100%" }}
                   alt="post banner"
-                  src={item.mainImage.asset.gatsbyImageData.images.fallback.src}
+                  image={item.mainImage.asset.gatsbyImageData}
                 />
                 <Heading
                   textAlign="center"
