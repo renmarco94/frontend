@@ -1,6 +1,6 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { Container, Heading, Text, Box, Image } from "@chakra-ui/react"
+import { Container, Heading, Text, Box } from "@chakra-ui/react"
 
 export default function HeroPost({ title, mainImage, excerpt }) {
   return (

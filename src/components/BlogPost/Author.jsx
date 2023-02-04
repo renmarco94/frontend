@@ -1,5 +1,6 @@
 import React from "react"
-import { Avatar, Box, Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import ShareButtons from "./ShareButtons"
 
 export default function Author({ header, author, title, description, url }) {
@@ -14,12 +15,34 @@ export default function Author({ header, author, title, description, url }) {
       borderColor="blackAlpha.900"
     >
       <Flex alignItems="center">
-        <Avatar
+        {header ? (
+          <GatsbyImage
+            style={{
+              borderRadius: "100%",
+              width: "100px",
+              marginRight: "12.5px",
+            }}
+            alt={author.Name}
+            image={author.image.asset.gatsbyImageData}
+          />
+        ) : (
+          <GatsbyImage
+            style={{
+              borderRadius: "100%",
+              width: "300px",
+              marginRight: "12.5px",
+            }}
+            alt={author.Name}
+            image={author.image.asset.gatsbyImageData}
+          />
+        )}
+        {/* <Avatar
           size={header ? "lg" : "xl"}
           mr="12.5px"
+          alt={author.name}
           name={author.Name}
-          src={author.image.asset.gatsbyImageData.images.fallback.src}
-        />
+          src={author.image.asset.gatsbyImageData.images.fallback.src} */}
+        {/* /> */}
         {header ? (
           <>
             <Flex flexDirection="column" justifyContent="center">
