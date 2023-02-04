@@ -34,7 +34,7 @@ export const SinglePostQuery = graphql`
         readTime
         mainImage {
           asset {
-            gatsbyImageData
+            gatsbyImageData(layout: FULL_WIDTH)
           }
         }
         _rawBody

@@ -1,10 +1,11 @@
 import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Container, Heading, Text, Box, Image } from "@chakra-ui/react"
 
 export default function HeroPost({ title, mainImage, excerpt }) {
   return (
     <>
-      <Container maxW="854px">
+      <Container mb="50px" maxW="854px">
         <Heading
           textAlign="center"
           fontWeight="bold"
@@ -29,11 +30,10 @@ export default function HeroPost({ title, mainImage, excerpt }) {
           </Text>
         </Box>
       </Container>
-      <Image
-        mt="50px"
-        w="100%"
+      <GatsbyImage
+        width="100%"
         alt={`${title} post cover image`}
-        src={mainImage.asset.gatsbyImageData.images.fallback.src}
+        image={mainImage.asset.gatsbyImageData}
       />
     </>
   )
